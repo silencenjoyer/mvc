@@ -1,0 +1,17 @@
+{
+    "name": "silencenjoyer/mvc",
+    "description": "My work on mvc",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Silencenjoyer",
+            "email": "an_gebrich@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "."
+        }
+    },
+    "require": {}
+}
