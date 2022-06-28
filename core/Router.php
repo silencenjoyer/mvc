@@ -39,6 +39,7 @@ class Router
            if (is_string($callback)) {
                return $this->render($callback);
            } else {
+               $callback[0] = new $callback[0]();
                return call_user_func($callback);
            }
        } else {
