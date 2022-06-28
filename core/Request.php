@@ -37,7 +37,7 @@ class Request
     {
         $body = [];
         foreach ($_POST as $key => $value) {
-            $body[$key] = filter_input(INPUT_POST, $value, FILTER_SANITIZE_SPECIAL_CHARS);
+            $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
         }
         return $body;
     }
@@ -45,11 +45,9 @@ class Request
     public function get(): array
     {
         $body = [];
-        if ($this->method() === Router::METHOD_GET) {
             foreach ($_GET as $key => $value) {
-                $body[$key] = filter_input(INPUT_GET, $value, FILTER_SANITIZE_SPECIAL_CHARS);
+                $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
-        }
         return $body;
     }
 

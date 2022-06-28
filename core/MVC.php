@@ -7,7 +7,7 @@ namespace app\core;
 class MVC
 {
     public static ?self $app = null;
-    public static $ROOT_PATH;
+    public static string $ROOT_PATH;
 
     private function __construct(
         public Request $request,

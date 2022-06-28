@@ -47,9 +47,9 @@ class Router
        }
     }
 
-    public function render(string $view): string
+    public function render(string $view, ?array $params = null): string
     {
-        $view = $this->renderOnlyView($view);
+        $view = $this->renderOnlyView($view, $params);
         if (!$view) {
             $view = $this->notFound(true);
         }
@@ -57,8 +57,14 @@ class Router
         return str_replace('{{content}}', $view, $layout);
     }
 
-    public function renderOnlyView(string $view): string
+    public function renderOnlyView(string $view, ?array $params = null): string
     {
+        if ($params) {
+            foreach ($params as $var => $value) {
+                $$var = $value;
+            }
+        }
+
         ob_start();
         include_once MVC::$ROOT_PATH . "/views/$view.php";
         return ob_get_clean() ?? '';

@@ -10,6 +10,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $app = MVC::getInstance(dirname(__DIR__));
 
 $app->router->get('/', [SiteController::class, 'homepage']);
-$app->router->get('/feedback', [SiteController::class, 'feedback']);
+$app->router->get('/register', [SiteController::class, 'register']);
+$app->router->post('/register', [SiteController::class, 'register']);
 
 $app->run();
